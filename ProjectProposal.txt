@@ -1,0 +1,113 @@
+﻿Design & Implement SDK for Trading APIs – Bajaj Broking
+
+Objective
+The objective of this assignment is to assess your understanding of backend system design, REST API development, and fundamental trading domain concepts. Best practices on Application Architecture, Application developement and REST API should be implemented and showcase.
+You are required to design and implement a bespoke Wrapper SDK around a simplified Trading API platform, similar to those used in online stock broking applications.
+The implementation should simulate core trading workflows. No real market connectivity is required.
+
+Problem Statement
+Design and implement a wrapper SDK around a set of REST APIs that allows users to:
+    1. View available financial instruments
+    2. Place buy and sell orders
+    3. Check order status
+    4. View executed trades
+    5. Fetch basic portfolio holdings
+The system should represent a simplified trading backend with in-memory or lightweight data storage.
+
+Functional Requirements
+1. Instrument APIs
+    • Fetch list of tradable instruments
+    • Instrument fields:
+        ◦ symbol
+        ◦ exchange
+        ◦ instrumentType
+        ◦ lastTradedPrice
+API Example
+GET /api/v1/instruments
+
+2. Order Management APIs
+Place a New Order
+    • Order Type: BUY / SELL
+    • Order Style: MARKET / LIMIT
+    • Mandatory fields:
+        ◦ Quantity (must be > 0)
+        ◦ Price (mandatory for LIMIT orders)
+    • Perform basic validations (e.g., quantity > 0)
+API Example
+POST /api/v1/orders
+Fetch Order Status
+    • Supported order states:
+        ◦ NEW
+        ◦ PLACED
+        ◦ EXECUTED
+        ◦ CANCELLED
+API Example
+GET /api/v1/orders/{orderId}
+
+3. Trade APIs
+    • Fetch list of executed trades for the user
+API Example
+GET /api/v1/trades
+
+4. Portfolio APIs
+    • Fetch current portfolio holdings
+    • Portfolio fields:
+        ◦ symbol
+        ◦ quantity
+        ◦ averagePrice
+        ◦ currentValue
+API Example
+GET /api/v1/portfolio
+
+Non-Functional Requirements
+    • Follow RESTful API design principles
+    • Use clean code structure and meaningful naming conventions
+    • Proper error handling with appropriate HTTP status codes
+    • Use in-memory or lightweight database (H2 / SQLite / Map-based storage)
+    • Authentication can be mocked (single hardcoded user is sufficient)
+    • Best practices on Application Architecture, Application developement and REST API should be implemented and showcased.
+
+Technology Stack
+(Preferred but not mandatory)
+    • Backend:
+        ◦  Python
+    • API Format: JSON
+    • Database: In-memory or lightweight DB
+    • Optional: Docker-based setup
+
+Additional Implementations
+    • Basic logging and centralized exception handling
+    • Swagger / OpenAPI documentation
+    • Unit tests for critical APIs
+    • Simple order execution simulation logic (e.g., immediate execution for market orders)
+
+Deliverables
+You are required to submit:
+    1. Source Code
+        ◦ GitHub repository link or ZIP file
+    2. README File (Mandatory), covering:
+        ◦ Setup and run instructions
+        ◦ API details
+        ◦ Assumptions made during implementation
+    3. Sample API Usage
+        ◦ Sample request/response screenshots or
+        ◦ curl command examples
+    4.  Text Document giving extreme details on implemented Best practices on Application Architecture, Application developement and REST API.
+       
+
+Evaluation Criteria
+Submissions will be evaluated based on:
+    • Clarity and correctness of API design
+    • Code quality and project structure
+    • Understanding of basic trading concepts
+    • Error handling and edge case coverage
+    • Documentation completeness and clarity
+
+Reference API Documentation
+You may refer to the following API documentation for understanding real-world trading APIs:
+API Document Link:
+https://apitrading.bajajbroking.in/introduction
+
+Note: Integration with the live Bajaj Broking APIs is not mandatory.
+This assignment is focused on design, structure, and simulation, not production integration.
+
